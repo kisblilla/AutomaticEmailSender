@@ -1,0 +1,123 @@
+[
+    {
+        "label": "smtplib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "smtplib",
+        "description": "smtplib",
+        "detail": "smtplib",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "PW",
+        "importPath": "constants",
+        "description": "constants",
+        "isExtraImport": true,
+        "detail": "constants",
+        "documentation": {}
+    },
+    {
+        "label": "ACCOUNT",
+        "importPath": "constants",
+        "description": "constants",
+        "isExtraImport": true,
+        "detail": "constants",
+        "documentation": {}
+    },
+    {
+        "label": "Template",
+        "importPath": "string",
+        "description": "string",
+        "isExtraImport": true,
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEMultipart",
+        "importPath": "email.mime.multipart",
+        "description": "email.mime.multipart",
+        "isExtraImport": true,
+        "detail": "email.mime.multipart",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEText",
+        "importPath": "email.mime.text",
+        "description": "email.mime.text",
+        "isExtraImport": true,
+        "detail": "email.mime.text",
+        "documentation": {}
+    },
+    {
+        "label": "ACCOUNT",
+        "kind": 5,
+        "importPath": "constants",
+        "description": "constants",
+        "peekOfCode": "ACCOUNT = 'kisb.lilla@gmail.com'\nPW = 'ide a jelszó amit gmail-en létre kell hozni az app-ra'",
+        "detail": "constants",
+        "documentation": {}
+    },
+    {
+        "label": "PW",
+        "kind": 5,
+        "importPath": "constants",
+        "description": "constants",
+        "peekOfCode": "PW = 'ide a jelszó amit gmail-en létre kell hozni az app-ra'",
+        "detail": "constants",
+        "documentation": {}
+    },
+    {
+        "label": "get_contacts",
+        "kind": 2,
+        "importPath": "personalized_mail",
+        "description": "personalized_mail",
+        "peekOfCode": "def get_contacts(filename):\n    \"\"\"\n    Return two lists names, emails containing names and email addresses\n    read from a file specified by filename.\n    \"\"\"\n    names = []\n    emails = []\n    contacts_file = open(filename)\n    contactslist = csv.reader(contacts_file)\n    for contact in contactslist:",
+        "detail": "personalized_mail",
+        "documentation": {}
+    },
+    {
+        "label": "read_template",
+        "kind": 2,
+        "importPath": "personalized_mail",
+        "description": "personalized_mail",
+        "peekOfCode": "def read_template(filename):\n    \"\"\"\n    Returns a Template object comprising the contents of the\n    file specified by filename.\n    \"\"\"\n    with open(filename, 'r', encoding='utf-8') as template_file:\n        template_file_content = template_file.read()\n    return Template(template_file_content)\ndef main():\n    names, emails = get_contacts('names_and_mails.csv')  # read contacts",
+        "detail": "personalized_mail",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "personalized_mail",
+        "description": "personalized_mail",
+        "peekOfCode": "def main():\n    names, emails = get_contacts('names_and_mails.csv')  # read contacts\n    # set up the SMTP server\n    s = smtplib.SMTP(host='smtp.gmail.com', port=587)\n    s.starttls()\n    s.login(MY_ADDRESS, PASSWORD)\n    # For each contact, send the email:\n    for name, email in zip(names, emails):\n        message = f'Kedves {name}!\\n mizu?'\n        msg = MIMEMultipart()  # create a message",
+        "detail": "personalized_mail",
+        "documentation": {}
+    },
+    {
+        "label": "MY_ADDRESS",
+        "kind": 5,
+        "importPath": "personalized_mail",
+        "description": "personalized_mail",
+        "peekOfCode": "MY_ADDRESS = ACCOUNT #<----------------# Enter your gmail Email address here##########\nPASSWORD = PW  #<----------------# Enter your gmail password here##########\ndef get_contacts(filename):\n    \"\"\"\n    Return two lists names, emails containing names and email addresses\n    read from a file specified by filename.\n    \"\"\"\n    names = []\n    emails = []\n    contacts_file = open(filename)",
+        "detail": "personalized_mail",
+        "documentation": {}
+    },
+    {
+        "label": "PASSWORD",
+        "kind": 5,
+        "importPath": "personalized_mail",
+        "description": "personalized_mail",
+        "peekOfCode": "PASSWORD = PW  #<----------------# Enter your gmail password here##########\ndef get_contacts(filename):\n    \"\"\"\n    Return two lists names, emails containing names and email addresses\n    read from a file specified by filename.\n    \"\"\"\n    names = []\n    emails = []\n    contacts_file = open(filename)\n    contactslist = csv.reader(contacts_file)",
+        "detail": "personalized_mail",
+        "documentation": {}
+    }
+]
